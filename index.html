@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Google My Business Optimization for Local SEO - Project Report">
+  <title>GMB Optimization | Local SEO Project</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f5f7fb;
+      color: #172033;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #172554, #2563eb);
+      color: white;
+      padding: 22px 7%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    nav a:hover {
+      opacity: 0.75;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #172554, #2563eb);
+      color: white;
+      padding: 90px 7% 100px;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .tag {
+      display: inline-block;
+      background: rgba(255,255,255,0.15);
+      border: 1px solid rgba(255,255,255,0.3);
+      padding: 8px 18px;
+      border-radius: 30px;
+      margin-bottom: 20px;
+      font-size: 14px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 7vw, 70px);
+      line-height: 1.05;
+      margin-bottom: 22px;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: auto;
+      font-size: 18px;
+      opacity: 0.92;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 13px 24px;
+      background: white;
+      color: #1d4ed8;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    section {
+      padding: 70px 7%;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 45px;
+    }
+
+    .section-title h2 {
+      font-size: 34px;
+      margin-bottom: 10px;
+    }
+
+    .section-title p {
+      color: #64748b;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .overview {
+      background: white;
+      border-radius: 18px;
+      padding: 35px;
+      box-shadow: 0 8px 30px rgba(15,23,42,0.08);
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(15,23,42,0.07);
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      background: #dbeafe;
+      color: #1d4ed8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+      font-weight: bold;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      color: #64748b;
+      font-size: 15px;
+    }
+
+    .dark {
+      background: #0f172a;
+      color: white;
+    }
+
+    .dark .section-title p,
+    .dark .card p {
+      color: #cbd5e1;
+    }
+
+    .dark .card {
+      background: #1e293b;
+    }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+    }
+
+    .analysis-box {
+      background: white;
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 25px rgba(15,23,42,0.07);
+    }
+
+    .analysis-box h3 {
+      margin-bottom: 18px;
+    }
+
+    .analysis-box ul {
+      padding-left: 20px;
+    }
+
+    .analysis-box li {
+      margin-bottom: 10px;
+    }
+
+    .keyword-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(15,23,42,0.07);
+    }
+
+    .keyword-table th,
+    .keyword-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .keyword-table th {
+      background: #1d4ed8;
+      color: white;
+    }
+
+    .keyword-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .strategy {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .step {
+      background: white;
+      padding: 25px;
+      border-left: 5px solid #2563eb;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(15,23,42,0.06);
+    }
+
+    .step span {
+      display: block;
+      color: #2563eb;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .metrics {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 18px;
+    }
+
+    .metric {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      text-align: center;
+      box-shadow: 0 7px 22px rgba(15,23,42,0.07);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 30px;
+      color: #2563eb;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .timeline {
+      max-width: 850px;
+      margin: auto;
+    }
+
+    .timeline-item {
+      background: white;
+      margin-bottom: 18px;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(15,23,42,0.06);
+    }
+
+    .timeline-item h3 {
+      color: #1d4ed8;
+      margin-bottom: 7px;
+    }
+
+    .recommendations {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .recommendation {
+      background: white;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 7px 22px rgba(15,23,42,0.07);
+    }
+
+    .recommendation h3 {
+      margin-bottom: 10px;
+    }
+
+    .conclusion {
+      background: linear-gradient(135deg, #dbeafe, #eff6ff);
+      border-radius: 20px;
+      padding: 45px;
+      text-align: center;
+    }
+
+    footer {
+      background: #020617;
+      color: #cbd5e1;
+      padding: 35px 7%;
+      text-align: center;
+    }
+
+    footer strong {
+      color: white;
+    }
+
+    @media (max-width: 850px) {
+      nav {
+        flex-direction: column;
+      }
+
+      nav a {
+        margin: 0 7px;
+        font-size: 12px;
+      }
+
+      .cards,
+      .recommendations,
+      .metrics {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .analysis-grid,
+      .strategy {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      section {
+        padding: 50px 5%;
+      }
+
+      .cards,
+      .recommendations,
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 65px 5% 75px;
+      }
+
+      .overview,
+      .conclusion {
+        padding: 25px;
+      }
+
+      .keyword-table {
+        font-size: 13px;
+      }
+
+      .keyword-table th,
+      .keyword-table td {
+        padding: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <nav>
+    <div class="logo">GMB Local SEO</div>
+
+    <div>
+      <a href="#overview">Overview</a>
+      <a href="#analysis">Analysis</a>
+      <a href="#keywords">Keywords</a>
+      <a href="#strategy">Strategy</a>
+      <a href="#recommendations">Recommendations</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-content">
+    <span class="tag">LOCAL SEO PROJECT</span>
+
+    <h1>Google My Business Optimization</h1>
+
+    <p>
+      A structured Local SEO project focused on improving Google Business
+      Profile visibility, keyword relevance, customer engagement,
+      and local search performance.
+    </p>
+
+    <a class="button" href="#overview">Explore Project</a>
+  </div>
+</section>
+
+<section id="overview">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Project Overview</h2>
+      <p>
+        This project demonstrates a practical approach to optimizing
+        a Google Business Profile for better local search visibility.
+      </p>
+    </div>
+
+    <div class="overview">
+      <h3>Project Objective</h3>
+      <br>
+
+      <p>
+        The primary objective is to analyze and improve key Google Business
+        Profile elements that influence local search visibility and customer
+        engagement. The project covers business information, categories,
+        descriptions, keywords, reviews, images, posts, and local SEO strategy.
+      </p>
+
+      <br>
+
+      <p>
+        The strategy is designed to create a consistent and trustworthy
+        business presence while improving the chances of appearing in
+        relevant local searches.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<section class="dark">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>GMB Optimization Areas</h2>
+      <p>
+        Key areas considered during the optimization process.
+      </p>
+    </div>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="card-icon">1</div>
+        <h3>Business Information</h3>
+        <p>
+          Maintain accurate business name, address, phone number,
+          website, working hours, and service information.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">2</div>
+        <h3>Business Category</h3>
+        <p>
+          Select relevant primary and secondary categories to improve
+          search relevance for the target audience.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">3</div>
+        <h3>Business Description</h3>
+        <p>
+          Create a clear and keyword-relevant business description
+          that communicates services and value.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">4</div>
+        <h3>Customer Reviews</h3>
+        <p>
+          Encourage genuine customer reviews and respond to reviews
+          professionally to support engagement.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">5</div>
+        <h3>Photos & Media</h3>
+        <p>
+          Use high-quality and relevant photos to improve profile
+          presentation and customer confidence.
+        </p>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">6</div>
+        <h3>Google Posts</h3>
+        <p>
+          Publish useful updates, offers, services, events, and
+          informative content consistently.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="analysis">
+  <div class="container">
+
+    <div class="section-title">
+      <h2>Local SEO Analysis</h2>
+      <p>
+        A practical framework for identifying optimization opportunities.
+      </p>
+    </div>
+
+    <div class="analysis-grid">
+
+      <div class="analysis-box">
+        <h3>Strengths to Build On</h3>
+        <ul>
+          <li>Complete and accurate business information</li>
+          <li>Relevant business category selection</li>
+          <li>Consistent customer engagement</li>
+          <li>Quality visual content</li>
+          <li>Regular profile updates</li>
+        </ul>
+      </div>
+
+      <div class="analysis-box">
+        <h3>Areas for Improvement</h3>
+        <ul>
+          <li>Improve keyword relevance</li>
+          <li>Increase review activity organically</li>
+          <li>Add fresh business photographs</li>
+          <li>Publish regular Google Posts</li>
+          <li>Maintain consistent local citations</li>
+        </ul>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<section id="
